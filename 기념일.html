@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>기념일 계산기</title>
+    <style>
+        body,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        ul,
+        li,
+        div {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        ul,
+        li {
+            list-style: none;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-size: 1rem;
+            font-style: normal;
+            font-weight: normal;
+        }
+
+        .weap {
+            width: 100%;
+            height: 100vh;
+            /*%와 vw vh의 차이점
+             %는 스크롤의 길이를 고려한다 
+             vw vh는 스크롤을 고려하지않는다
+
+             %는 부모의 사이즈를 기준으로 한다
+             vw vh,는 브라우저 (디바이스 )크기를 기준으로 함  */
+            background-color: #c4f3ff;
+        }
+
+        .img1 {
+            width: 50px;
+            height: 50px;
+            margin: 0 auto;
+        }
+
+        .day1 {
+            width: 100%;
+            height: 26%;
+            background-color: rgb(255, 189, 189);
+            padding: 30px 0;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            color: #333;
+
+        }
+
+        .day1 h3 {
+            font-size: 1.2rem;
+            color: firebrick;
+            font-weight: bold;
+
+        }
+
+        .day1 .accent {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .bar {
+            width: 100%;
+            height: 4%;
+            color: #fff;
+            background-color: indianred;
+            display: flex;
+            align-items: center;
+
+        }
+
+        .bar p {
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .day2 {
+            width: 100%;
+            height: 70%;
+            background-color: #f7a9a9;
+        }
+
+        .day2 ul {
+            width: 80%;
+            height: 25%;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid firebrick;
+            color: #333;
+
+
+        }
+
+        .day2 ul .item-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .day2 h2 {
+            color: firebrick;
+            font-weight: bold;
+            text-align: center;
+
+        }
+
+        .bg .love {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+
+
+        }
+
+
+
+
+
+        @media(min-width: 769px) {
+            .weap {
+                width: 367px;
+                height: 667px;
+                margin: 0 auto;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.6);
+            }
+
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="weap">
+        <!-- <img src="love1.png" alt="하트이미지"> -->
+        <div class="day1">
+            <img class="img1" src="love1.png" alt="하트이미지">
+
+
+            <h3>우리 사랑한지</h3>
+            <p id="accent" class="accent">일<span>&hearts;</span></p>
+        </div>
+        <div class="bar">
+            <p>기념일 계산</p>
+        </div>
+        <div class="day2">
+            <ul>
+                <li class="item-title">100 일</li>
+                <li class="item-date" id="date100">2020년 09.09</li>
+            </ul>
+            <ul>
+                <li class="item-title">200 일</li>
+                <li class="item-date" id="date200"></li>
+            </ul>
+            <ul>
+                <li class="item-title">1주년</li>
+                <li class="item-date" id="date365"></li>
+
+            </ul>
+
+        </div>
+
+
+
+    </div>
+
+    </div>
+
+
+    <script>
+
+        var now = new Date();
+
+        var firstDay = new Date("2018-11-16")
+        var toNow = now.getTime();
+        var toFirst = firstDay.getTime();
+        var passedTime = toNow - toFirst;
+        var passedDay = Math.round(passedTime / (1000 * 60 * 60 * 24));
+        document.getElementById("accent").innerText = passedDay + "일 ";
+
+        var date = new Date();
+        var year = date.getFullYear() - 1;
+        console.log(year);
+        var month = date.getMonth() - 6;
+        console.log(month);
+        var dat = date.getDate() + 8;
+        console.log(dat);
+        document.getElementById("date100").innerText = year + "년 " + month + "월" + dat + "일";
+
+        var date = new Date();
+        var year = date.getFullYear() - 1;
+        console.log(year);
+        var month = date.getMonth() - 2;
+        console.log(month);
+        var dat = date.getDate() - 12;
+        console.log(dat);
+        document.getElementById("date200").innerText = year + "년 " + month + "월" + dat + "일";
+
+        var date = new Date();
+        var year = date.getFullYear() - 1;
+        console.log(year);
+        var month = date.getMonth() + 3;
+        console.log(month);
+        var dat = date.getDate() + 1;
+        console.log(dat);
+        document.getElementById("date365").innerText = year + "년 " + month + "월" + dat + "일";
+
+    </script>
+
+
+</body>
+
+</html>
